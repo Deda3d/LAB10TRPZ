@@ -1,0 +1,43 @@
+﻿@model LAB10TRPZ.Models.OperandsModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <h2>Порівняння сум масивів</h2>
+        @using (Html.BeginForm("Index", "Calc", FormMethod.Post))
+        {
+            <label for="Array1">Масив 1 (введіть числа через кому):</label>
+
+            <br />
+            @Html.TextBoxFor(x => x.Array1, new { placeholder = "Наприклад: 1,2,3" })
+
+            <br />
+
+            <br />
+
+            <label for="Array2">Масив 2 (введіть числа через кому):</label>
+
+            <br />
+            @Html.TextBoxFor(x => x.Array2, new { placeholder = "Наприклад: 4,5,6" })
+
+            <br />
+
+            <br />
+
+            <input type="submit" value="Обчислити" />
+        }
+
+        @if (!string.IsNullOrWhiteSpace(ViewBag.Result))
+        {
+            <p><strong>Результат:</strong> @ViewBag.Result</p>
+        }
+    </div>
+</body>
+</html>
